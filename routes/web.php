@@ -15,10 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user/{id?}', function ($id=0) {
+Route::get('user/{id}', function ($id=0) {
     
     return 'User '.$id;
-});
+})->where('id','[0-9]+');
+
+
 
 Route::get('posts/{post}/comments/{comment?}', function ($postId=0, $commentId=0) {
     return $postId.'-----'.$commentId;
@@ -29,29 +31,13 @@ Route::get('posts/{post}/comments/{comment?}', function ($postId=0, $commentId=0
 //    return 'User '.$id;
 //});
 
-Route::get('/hd', function () {
-    
-    echo "GET";
-    return view('welcome');
-});
+Route::get('test', 'Admin\IndexController@index');
 
 
-Route::post('/hd', function () {
-    
-    echo "Post";
-     return view('welcome');
-});
 
-Route::put('/hd', function () {
-    
-    echo "put";
-     return view('welcome');
-});
-
-
-Route::match(['get', 'post'], '/test', function () {
-    echo "match";
-});
+//Route::match(['get', 'post'], '/test', function () {
+//    echo "match 000";
+//});
 
 
 Route::any('/foo', function () {
