@@ -32,6 +32,10 @@ Route::get('posts/{post}/comments/{comment?}', function ($postId=0, $commentId=0
 
 Route::get('test', 'Admin\IndexController@index');
 
+Route::get('/view', function (){
+    
+    return view('my_laravel');
+});
 
 Route::get('test',[
     'as'=>'profile', 'uses' => 'Admin\IndexController@index'
