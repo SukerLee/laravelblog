@@ -8,6 +8,13 @@ class IndexController extends Controller
 {
     public function index()
     {
-        echo 11111123123123;
+        return view( 'welcome');
+    }
+    
+     public function login()
+    {
+         
+         session(['admin'=>1]);
+        return "登入！！！！";
     }
 }

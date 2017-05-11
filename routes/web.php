@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 
 Route::get('user/{id}', function ($id=0) {
     
@@ -32,6 +31,47 @@ Route::get('posts/{post}/comments/{comment?}', function ($postId=0, $commentId=0
 //});
 
 Route::get('test', 'Admin\IndexController@index');
+
+
+Route::get('test',[
+    'as'=>'profile', 'uses' => 'Admin\IndexController@index'
+]);
+
+Route::get('test', 'Admin\IndexController@index')->name('profile');
+
+
+
+Route::group(['prefix' => 'admin', 'namespace'=>'Admin' , 'middleware'=>[ 'web','admin.login']], function () {
+    
+//Route::get('login', 'IndexController@login');
+Route::get('index', 'IndexController@index');
+Route::resource('article', 'ArticleController');
+
+});
+
+Route::group(['middleware'=>['web']], function () {
+    
+    
+        Route::get('admin/login', 'Admin\IndexController@login');
+    
+        Route::get('/', function () {
+            session(['key' => '123448']);
+            return view('welcome');
+        });
+
+        Route::get('/test2', function () {
+            echo session('key');
+            return "test2";
+        });
+
+});
+
+
+
+//Route::get('admin/login', 'Admin\IndexController@login');
+//
+//Route::get('admin/index', 'Admin\IndexController@index');
+
 
 
 
