@@ -78,37 +78,10 @@
             @endif
 
             <div class="content">
-                <div>
-                    <!--                    @if($data['score']<60)
-                                        A
-                                        @else
-                                        B
-                                        @endif-->
-
-                    <!--                    @unless($data['score']>60)
-                                        B
-                                        @endunless
-
-
-                                        @for($i=0 ;$i<=$data['num'];$i++)
-
-                                        {{$i}} <br>
-                                        @endfor-->
-
-                    <!--                    @forelse($data['news'] as $v)
-                                        {{$v}} <br>
-                                        @empty
-                                        no data
-                                        @endforelse-->
-
-                    @foreach($data['article'] as $k=>$v)
-                    @if($k>1)
-                    {{$k}} => {{$v}}<br>
-                    @endif
-                    @endforeach
-
-
+                <div class="title m-b-md">
+                    <?= $name ?><p> <?= $show ?></p>
                 </div>
+
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
                     <a href="https://laracasts.com">Laracasts</a>
