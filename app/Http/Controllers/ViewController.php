@@ -55,4 +55,22 @@ class ViewController extends Controller {
         return view('my_laravel3')->with('name', $name)->with('show', $show);
     }
 
+    
+    
+    public function view() {
+
+        echo config('database.connections.mysql.prefix');
+
+       // return view('my_laravel');
+    }
+    
+    public function article() {
+
+        return view('article');
+    }
+    
+    public function layouts() {
+
+        return view('layouts');
+    }
 }

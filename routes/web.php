@@ -38,13 +38,17 @@ Route::get('test', 'Admin\IndexController@index');
 //});
 
 
-Route::get('view', 'ViewController@index');
+//Route::get('view', 'ViewController@index');
+//
+//Route::get('view/test', 'ViewController@test');
+//
+//Route::get('view/test2', 'ViewController@test2');
 
-Route::get('view/test', 'ViewController@test');
+Route::get('view', 'ViewController@view');
 
-Route::get('view/test2', 'ViewController@test2');
+Route::get('article', 'ViewController@article');
 
-
+Route::get('layouts', 'ViewController@layouts');
 
 Route::get('test', [
     'as' => 'profile', 'uses' => 'Admin\IndexController@index'
