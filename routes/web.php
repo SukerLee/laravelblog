@@ -44,6 +44,8 @@ Route::get('test', 'Admin\IndexController@index');
 //
 //Route::get('view/test2', 'ViewController@test2');
 
+Route::get('/', 'IndexController@index');
+
 Route::get('view', 'ViewController@view');
 
 Route::get('article', 'ViewController@article');
@@ -70,21 +72,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['web
 
 //session test
 
-Route::group(['middleware' => ['web']], function () {
-
-
-    Route::get('admin/login', 'Admin\IndexController@login');
-
-    Route::get('/', function () {
-        session(['key' => '123448']);
-        return view('welcome');
-    });
-
-    Route::get('/test2', function () {
-        echo session('key');
-        return "test2";
-    });
-});
+//Route::group(['middleware' => ['web']], function () {
+//
+//
+//    Route::get('admin/login', 'Admin\IndexController@login');
+//
+//    Route::get('/', function () {
+//        session(['key' => '123448']);
+//        return view('welcome');
+//    });
+//
+//    Route::get('/test2', function () {
+//        echo session('key');
+//        return "test2";
+//    });
+//});
 
 
 
